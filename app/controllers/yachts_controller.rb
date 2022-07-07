@@ -1,5 +1,5 @@
 class YachtsController < ApplicationController
-  before_action :set_yacht, only: %i[ show update destroy ]
+  before_action :set_yacht, only: %i[show update destroy]
 
   # GET /yachts
   def index
@@ -39,13 +39,14 @@ class YachtsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_yacht
-      @yacht = Yacht.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def yacht_params
-      params.require(:yacht).permit(:index, :show, :new)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_yacht
+    @yacht = Yacht.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def yacht_params
+    params.require(:yacht).permit(:index, :show, :new)
+  end
 end

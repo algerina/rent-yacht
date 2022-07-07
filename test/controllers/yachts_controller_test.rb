@@ -1,35 +1,35 @@
-require "test_helper"
+require 'test_helper'
 
 class YachtsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @yacht = yachts(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get yachts_url, as: :json
     assert_response :success
   end
 
-  test "should create yacht" do
-    assert_difference("Yacht.count") do
+  test 'should create yacht' do
+    assert_difference('Yacht.count') do
       post yachts_url, params: { yacht: { index: @yacht.index, new: @yacht.new, show: @yacht.show } }, as: :json
     end
 
     assert_response :created
   end
 
-  test "should show yacht" do
+  test 'should show yacht' do
     get yacht_url(@yacht), as: :json
     assert_response :success
   end
 
-  test "should update yacht" do
+  test 'should update yacht' do
     patch yacht_url(@yacht), params: { yacht: { index: @yacht.index, new: @yacht.new, show: @yacht.show } }, as: :json
     assert_response :success
   end
 
-  test "should destroy yacht" do
-    assert_difference("Yacht.count", -1) do
+  test 'should destroy yacht' do
+    assert_difference('Yacht.count', -1) do
       delete yacht_url(@yacht), as: :json
     end
 
