@@ -22,19 +22,12 @@ class V1::ReservationsController < ApplicationController
   end
 
   def destroy
-    @reservation = Reservation.find_by(id: params[:id])
-
-    if @reservation.nil?
+    reservation = Reservation.find_by(id: params[:id])
+    if reservation.nil?
       render status: 404, json: { error: 'Reservation not found' }.to_json
-      return
-    end
-
-    @reservation.destroy
-
-    if @reservation.destroyed?
-      render status: 200, json: { message: 'Reservation destroyed' }.to_json
     else
-      render status: 500, json: { error: 'Reservation could not be destroyed' }.to_json
+      reservation.destroy
+      render json: { message: 'Reservation deleted' }.to_json
     end
   end
 
