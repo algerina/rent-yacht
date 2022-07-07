@@ -1,4 +1,4 @@
-class YachtsController < ApplicationController
+class V1::YachtsController < ApplicationController
   before_action :set_yacht, only: %i[show update destroy]
 
   # GET /yachts
