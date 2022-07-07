@@ -112,6 +112,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.6-x64-mingw32)
       racc (~> 1.4)
+    nokogiri (1.13.6-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
     pg (1.4.1)
@@ -167,6 +169,7 @@ GEM
 PLATFORMS
   x64-mingw-ucrt
   x64-mingw32
+  x86_64-darwin-19
   x86_64-linux
 
 DEPENDENCIES
@@ -178,7 +181,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.1.1p18
 
 BUNDLED WITH
-   2.4.0.dev
+   2.3.12
