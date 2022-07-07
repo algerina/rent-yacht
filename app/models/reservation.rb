@@ -2,6 +2,7 @@ class Reservation < ApplicationRecord
   belongs_to :user, dependent: :destroy
   belongs_to :yacht, dependent: :destroy
   validates :city, presence: true
+  validates :start_date, :end_date, presence: true, availability: true
   validate :end_date_after_start_date
 
   private
