@@ -1,0 +1,2 @@
+class Yacht < ApplicationRecord
+end
