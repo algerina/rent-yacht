@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :reservations, dependent: :destroy
   has_one_attached :image
 
-  validates :username, uniqueness: true
+  validates :username, uniqueness: { case_sensitive: false}
 
   enum role: {
     user: 'user',
