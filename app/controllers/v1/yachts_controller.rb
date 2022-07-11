@@ -1,6 +1,6 @@
 class V1::YachtsController < ApplicationController
   before_action :set_yacht, only: %i[show update destroy]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   # GET /yachts
   def index
@@ -11,7 +11,7 @@ class V1::YachtsController < ApplicationController
 
   # GET /yachts/1
   def show
-    render json: @yacht
+    render json: YachtSerializer.new(@yacht).serializable_hash[:data][:attributes]
   end
 
   # POST /yachts
@@ -19,7 +19,7 @@ class V1::YachtsController < ApplicationController
     @yacht = Yacht.new(yacht_params)
 
     if @yacht.save
-      render json: @yacht, status: :created
+      render json: YachtSerializer.new(@yacht).serializable_hash[:data][:attributes], status: :created
     else
       render json: @yacht.errors, status: :unprocessable_entity
     end
