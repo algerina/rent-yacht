@@ -91,9 +91,8 @@ GEM
     dry-configurable (0.15.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.6)
-    dry-container (0.9.0)
+    dry-container (0.10.0)
       concurrent-ruby (~> 1.0)
-      dry-configurable (~> 0.13, >= 0.13.0)
     dry-core (0.7.1)
       concurrent-ruby (~> 1.0)
     erubi (1.10.0)
@@ -101,7 +100,7 @@ GEM
       activesupport (>= 4.2)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    i18n (1.10.0)
+    i18n (1.11.0)
       concurrent-ruby (~> 1.0)
     io-console (0.5.11)
     irb (1.4.1)
@@ -133,10 +132,13 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
+<<<<<<< HEAD
     nokogiri (1.13.6-x64-mingw32)
       racc (~> 1.4)
     nokogiri (1.13.6-x86_64-darwin)
       racc (~> 1.4)
+=======
+>>>>>>> 7218b3f9d40ab41692f553cc183262b4527f1ef5
     nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -222,8 +224,11 @@ GEM
     zeitwerk (2.6.0)
 
 PLATFORMS
+<<<<<<< HEAD
   x64-mingw32
   x86_64-darwin-19
+=======
+>>>>>>> 7218b3f9d40ab41692f553cc183262b4527f1ef5
   x86_64-linux
 
 DEPENDENCIES
@@ -240,7 +245,11 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
+<<<<<<< HEAD
    ruby 2.7.5p203
+=======
+   ruby 3.1.2p20
+>>>>>>> 7218b3f9d40ab41692f553cc183262b4527f1ef5
 
 BUNDLED WITH
-   2.3.7
+   2.3.15
