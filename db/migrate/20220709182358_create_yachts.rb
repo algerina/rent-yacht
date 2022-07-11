@@ -4,7 +4,6 @@ class CreateYachts < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :description
       t.decimal :price
-      t.string :image
 
       t.timestamps
     end
