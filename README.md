@@ -1,5 +1,4 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
-<hr>
 ![](https://img.shields.io/static/v1?label=BY&message=Algerina&color=pink)
 ![](https://img.shields.io/static/v1?label=BY&message=Estebanmual&color=blue)
 ![](https://img.shields.io/static/v1?label=BY&message=FranciscoPonceDev&color=purple)
