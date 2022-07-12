@@ -44,6 +44,14 @@ RSpec.configure do |config|
             user_id: {type: :integer, example: 1},
           }
         },
+        User: { 
+          type: 'object',
+          properties: {
+            username: {type: :string, example: "user1"},
+            email: {type: :string, example: "hola@hola.com"},
+            password: {type: :string, example: "123456"},
+          }
+        },
         ErrorResponse: {
           type: 'object',
           properties: {
@@ -63,7 +71,16 @@ RSpec.configure do |config|
             }
           }
         }
-      ]
+      ],
+      components: {
+        securitySchemes: {
+          bearerAuth: {
+            type: :http,
+            scheme: :bearer,
+            bearerFormat: JWT
+          },
+        },
+      },
     }
   }
   config.swagger_format = :yaml

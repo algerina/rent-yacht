@@ -3,7 +3,127 @@ openapi: 3.0.1
 info:
   title: API V1
   version: v1
-paths: {}
+paths:
+  "/signup":
+    post:
+      summary: Sign up to recieve a bearer token
+      tags:
+      - Registration
+      parameters: []
+      responses:
+        '200':
+          description: User created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  "$ref": "#/definitions/User"
+              required:
+              - user
+  "/login":
+    post:
+      summary: Login to recieve a bearer token
+      tags:
+      - Registration
+      parameters: []
+      responses:
+        '200':
+          description: Log in successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                      example: user1
+                    password:
+                      type: string
+                      example: '123456'
+  "/v1/yachts":
+    get:
+      summary: Returns all yachts
+      tags:
+      - Yachts
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: List of Yachts
+          content:
+            application/json:
+              schema:
+                type: array
+                yachts:
+                  type: object
+                  items:
+                    "$ref": "#/definitions/Yacht"
+    post:
+      summary: Create a new Yacht [Admin user only]
+      tags:
+      - Yachts
+      security:
+      - bearerAuth: []
+      parameters: []
+      responses:
+        created:
+          description: Yacht created
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  "$ref": "#/definitions/Yacht"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Example yacht
+                description:
+                  type: string
+                  example: Example description
+                price:
+                  type: decimal
+                  example: 100.0
+  "/v1/yachts/{id}":
+    get:
+      summary: Returns a yacht
+      tags:
+      - Yachts
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Yacht information
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  "$ref": "#/definitions/Yacht"
+        '404':
+          description: Yacht not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/definitions/ErrorResponse"
 definitions:
   Yacht:
     type: object
@@ -44,6 +164,18 @@ definitions:
       user_id:
         type: integer
         example: 1
+  User:
+    type: object
+    properties:
+      username:
+        type: string
+        example: user1
+      email:
+        type: string
+        example: hola@hola.com
+      password:
+        type: string
+        example: '123456'
   ErrorResponse:
     type: object
     properties:
@@ -57,3 +189,9 @@ servers:
   variables:
     defaultHost:
       default: localhost:3001
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
