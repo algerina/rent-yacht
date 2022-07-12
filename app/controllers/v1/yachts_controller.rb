@@ -11,7 +11,7 @@ class V1::YachtsController < ApplicationController
 
   # GET /yachts/1
   def show
-    render json: YachtSerializer.new(@yacht).serializable_hash[:data][:attributes]
+    render json: YachtSerializer.new(@yacht).serializable_hash[:data][:attributes], status: :ok
   end
 
   # POST /yachts

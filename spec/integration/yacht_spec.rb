@@ -17,4 +17,19 @@ describe 'Yacht API' do
             end
         end
     end
+    path '/v1/yachts/{id}' do
+        get 'Returns a yacht' do
+            tags 'Yachts'
+            consumes 'application/json'
+            produces 'application/json'
+
+            parameter name: :id, in: :path, type: :string
+
+            response '200', 'Yacht information' do
+                schema type: :object,
+                    items: {'$ref' => '#/definitions/Yacht'}
+                run_test!
+            end
+        end
+    end
 end

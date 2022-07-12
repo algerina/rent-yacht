@@ -20,6 +20,26 @@ paths:
                   type: object
                   items:
                     "$ref": "#/definitions/Yacht"
+  "/v1/yachts/{id}":
+    get:
+      summary: Returns a yacht
+      tags:
+      - Yachts
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Yacht information
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  "$ref": "#/definitions/Yacht"
 definitions:
   Yacht:
     type: object
