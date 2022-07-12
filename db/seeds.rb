@@ -2,7 +2,7 @@ user1 = User.create(id: 1, username: "AdminUser", role: "admin", password: "pass
 user1.image.attach(io: File.open("app/assets/images/user1.png"), filename: "user1.png")
 
 user2 = User.create(id: 2, username: "UserUser", role: "user", password: "password", email: "user@user.com")
-user2.image.attach(io: File.open("app/assets/images/user2.jpg"), filename: "user2.jpg")
+user2.image.attach(io: File.open("app/assets/images/user2.png"), filename: "user2.jpg")
 
 yacht1 = Yacht.create(id: 1, name: "Yacht 1", description: "This is our first Yacht", price: 100)
 yacht1.image.attach(io: File.open("app/assets/images/yacht1.jpg"), filename: "yacht1.jpg")
@@ -22,4 +22,4 @@ yacht4.image.attach(io: File.open("app/assets/images/yacht4.jpg"), filename: "ya
 yacht5 = Yacht.create(id: 5, name: "Yacht 5", description: "This is our fifth Yacht", price: 500)
 yacht5.image.attach(io: File.open("app/assets/images/yacht5.jpg"), filename: "yacht5.jpg")
 
-reservation1 = Reservation.create(id: 1, city: "New York", start_date: "2022-07-20", end_date: "2020-07-25", cost: 100, user_id: 2, yacht_id: 1)
+reservation1 = Reservation.create(id: 1, city: "New York", start_date: "2022-07-20", days_number: 5, user_id: 2, yacht_id: 1)
