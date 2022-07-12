@@ -5,7 +5,7 @@
 ![](https://img.shields.io/static/v1?label=BY&message=German-cobian&color=red)
 ![](https://img.shields.io/static/v1?label=BY&message=Omar25ahmed&color=green)
 
-# App name
+# WISHYACHT
 ![Rails](https://img.shields.io/badge/rails-%23CC0000.svg?style=for-the-badge&logo=ruby-on-rails&logoColor=white)
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 
