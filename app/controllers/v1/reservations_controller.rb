@@ -16,6 +16,7 @@ class V1::ReservationsController < ApplicationController
 
   def create
     reservation = Reservation.new(reservation_params)
+    reservation.cost = reservation.yacht.price * reservation.days_number
     if reservation.save
       render json: reservation.to_json
     else
@@ -36,6 +37,6 @@ class V1::ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:user_id, :yacht_id, :city, :start_date, :end_date)
+    params.require(:reservation).permit(:user_id, :yacht_id, :city, :start_date, :days_number)
   end
 end
