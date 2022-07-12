@@ -43,6 +43,15 @@ RSpec.configure do |config|
             yacht_id: {type: :integer, example: 1},
             user_id: {type: :integer, example: 1},
           }
+        },
+        ErrorResponse: {
+          type: 'object',
+          properties: {
+            messages: {
+              type: :object, 
+              items: {type: :string, example: "Error message"}
+            },
+          }
         }
       },
       servers: [

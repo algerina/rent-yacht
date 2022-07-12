@@ -38,7 +38,10 @@ class V1::YachtsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_yacht
-    @yacht = Yacht.find(params[:id])
+    @yacht = Yacht.find_by_id(params[:id])
+    if @yacht.nil?
+      render json: { message: 'Yacht not found' }, status: 404
+    end
   end
 
   # Only allow a list of trusted parameters through.

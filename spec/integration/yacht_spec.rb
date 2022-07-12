@@ -30,6 +30,11 @@ describe 'Yacht API' do
                     items: {'$ref' => '#/definitions/Yacht'}
                 run_test!
             end
+
+            response '404', 'Yacht not found' do
+                schema '$ref' => '#/definitions/ErrorResponse'
+                run_test!
+            end
         end
     end
 end

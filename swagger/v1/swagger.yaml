@@ -3,43 +3,7 @@ openapi: 3.0.1
 info:
   title: API V1
   version: v1
-paths:
-  "/v1/yachts":
-    get:
-      summary: Returns all yachts
-      tags:
-      - Yachts
-      responses:
-        '200':
-          description: List of Yachts
-          content:
-            application/json:
-              schema:
-                type: array
-                yachts:
-                  type: object
-                  items:
-                    "$ref": "#/definitions/Yacht"
-  "/v1/yachts/{id}":
-    get:
-      summary: Returns a yacht
-      tags:
-      - Yachts
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: Yacht information
-          content:
-            application/json:
-              schema:
-                type: object
-                items:
-                  "$ref": "#/definitions/Yacht"
+paths: {}
 definitions:
   Yacht:
     type: object
@@ -80,6 +44,14 @@ definitions:
       user_id:
         type: integer
         example: 1
+  ErrorResponse:
+    type: object
+    properties:
+      messages:
+        type: object
+        items:
+          type: string
+          example: Error message
 servers:
 - url: http://{defaultHost}
   variables:
