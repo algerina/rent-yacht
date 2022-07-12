@@ -1,4 +1,4 @@
 class YachtSerializer
   include JSONAPI::Serializer
-  attributes :name, :description, :price, :image, :image_url
+  attributes :id, :name, :description, :price, :image_url
 end

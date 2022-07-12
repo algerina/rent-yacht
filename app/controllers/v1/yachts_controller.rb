@@ -6,7 +6,7 @@ class V1::YachtsController < ApplicationController
   def index
     @yachts = Yacht.all
 
-    render json: @yachts
+    render json: YachtSerializer.new(@yachts).serializable_hash[:data]
   end
 
   # GET /yachts/1
@@ -24,15 +24,6 @@ class V1::YachtsController < ApplicationController
       render json: @yacht.errors, status: :unprocessable_entity
     end
   end
-
-  # PATCH/PUT /yachts/1
-  # def update
-  #   if @yacht.update(yacht_params)
-  #     render json: @yacht
-  #   else
-  #     render json: @yacht.errors, status: :unprocessable_entity
-  #   end
-  # end
 
   # DELETE /yachts/1
   def destroy
