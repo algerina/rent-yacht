@@ -1,0 +1,67 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/v1/yachts":
+    get:
+      summary: Returns all yachts
+      tags:
+      - Yachts
+      responses:
+        '200':
+          description: List of Yachts
+          content:
+            application/json:
+              schema:
+                type: array
+                yachts:
+                  type: object
+                  items:
+                    "$ref": "#/definitions/Yacht"
+definitions:
+  Yacht:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 1
+      name:
+        type: string
+        example: Yacht 1
+      description:
+        type: string
+        example: This is our first yacht
+      price:
+        type: decimal
+        example: 100.0
+      image_url:
+        type: string
+        example: http://localhost:3001/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--208a837d96cfc8b12c86088b4e4e0d0871fa6dce/yacht1.jpg
+  Reservation:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 1
+      start_date:
+        type: datetime
+        example: '2020-01-01'
+      days_number:
+        type: integer
+        example: 5
+      cost:
+        type: decimal
+        example: 500.0
+      yacht_id:
+        type: integer
+        example: 1
+      user_id:
+        type: integer
+        example: 1
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3001
