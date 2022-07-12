@@ -16,6 +16,7 @@ class V1::ReservationsController < ApplicationController
 
   def create
     reservation = Reservation.new(reservation_params)
+    reservation.cost = reservation.yacht.price * reservation.days_number
     if reservation.save
       render json: reservation.to_json
     else
