@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_11_193233) do
   create_table "reservations", force: :cascade do |t|
     t.string "city"
     t.datetime "start_date"
-    t.datetime "end_date"
+    t.integer "days_number"
     t.decimal "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

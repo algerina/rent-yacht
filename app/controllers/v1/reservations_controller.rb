@@ -36,6 +36,6 @@ class V1::ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:user_id, :yacht_id, :city, :start_date, :end_date)
+    params.require(:reservation).permit(:user_id, :yacht_id, :city, :start_date, :days_number)
   end
 end
