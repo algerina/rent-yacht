@@ -13,9 +13,6 @@ class Reservation < ApplicationRecord
   private
 
   def valid_date
-    unless start_date >= Date.today + 1
-      errors.add(:start_date, "must be at least #{(Date.today + 1).to_s}")
-    end
+    errors.add(:start_date, "must be at least #{Date.today + 1}") unless start_date >= Date.today + 1
   end
-
 end

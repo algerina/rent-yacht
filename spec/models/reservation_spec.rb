@@ -5,7 +5,8 @@ RSpec.describe Reservation, type: :model do
     before(:each) do
       @user = User.create(username: 'test25', email: 'a@a', password: '123456', role: 'admin', profile_pic: 'test.jpg')
       @yacht = Yacht.create(name: 'Sports Yacht', description: 'Good Yacht', price: 100)
-      @reservation = Reservation.create(city: 'New York', start_date: '2023-01-01', days_number: 5, user_id: @user.id, yacht_id: @yacht.id)
+      @reservation = Reservation.create(city: 'New York', start_date: '2023-01-01', days_number: 5, user_id: @user.id,
+                                        yacht_id: @yacht.id)
     end
     it 'should be valid' do
       expect(@reservation).to be_valid
