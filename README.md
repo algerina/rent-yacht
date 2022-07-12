@@ -24,6 +24,12 @@
 >You can review the documentation for the API [here]().
 <hr>
 
+ 
+## Front-end Repository 
+
+[ReactApp](https://github.com/algerina/rent-yacht-frontend)
+
+
 ## Built With
 
 - Major languages: Ruby, HTML, Javascript, Bootstrap.
@@ -124,7 +130,7 @@ git merge <branchname>
  Platform | Badge |
  --- | --- |
  **GitHub**  | [@Algerina](https://github.com/Algerina)
- **LinkedIn** | [@Amel Khiri](https://linkedin.com/in/amel-khiri-qahwadji-37a550135)
+ **LinkedIn** | [@Amel Khiri](https://www.linkedin.com/in/amel-khiri/)
 <hr>
 
 👤 **Edgar Esteban Muñoz Alba**
@@ -148,15 +154,17 @@ Platform | Badge |
  --- | --- |
  **GitHub**  | [@German Cobian](https://github.com/German-Cobian)
  **Twitter** |[@GermanCobian2](https://twitter.com/GermanCobian2)
- **LinkedIn** | LinkedIn: [@German Cobian](https://www.linkedin.com/in/german-cobian/)
+ **LinkedIn** | [@German Cobian](https://www.linkedin.com/in/german-cobian/)
 
  👤 **Omar Ragheb**
 
 Platform | Badge |
  --- | --- |
  **GitHub**  |  [https://github.com/omar25ahmed](https://github.com/omar25ahmed)
- **Twitter** |[https://twitter.com/ntare_guy](https://twitter.com/ntare_guy)
- **LinkedIn** | [https://www.linkedin.com/in/ntare-guy/](https://www.linkedin.com/in/ntare-guy/)
+ **Twitter** |[https://twitter.com/Omar25Ahmed](https://twitter.com/Omar25Ahmed
+)
+ **LinkedIn** | [https://www.linkedin.com/in/omar-ragheb/](https://www.linkedin.com/in/omar-ragheb/
+)
 
 <hr>
  
