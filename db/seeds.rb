@@ -22,4 +22,4 @@ yacht4.image.attach(io: File.open("app/assets/images/yacht4.jpg"), filename: "ya
 yacht5 = Yacht.create(name: "Yacht 5", description: "This is our fifth Yacht", price: 500)
 yacht5.image.attach(io: File.open("app/assets/images/yacht5.jpg"), filename: "yacht5.jpg")
 
-reservation1 = Reservation.create(city: "New York", start_date: "2022-07-20", days_number: 6, cost: 100, user_id: user2.id, yacht_id: yacht1.id)
+reservation1 = Reservation.create(city: "New York", start_date: "2022-07-20", days_number: 6, user_id: user2.id, yacht_id: yacht1.id)
