@@ -1,7 +1,7 @@
-user1 = User.create(username: "AdminUser", role: "admin", password: "password", email: "admin@admin.com")
+user1 = User.create(username: "AdminUser", role: 1, password: "password", email: "admin@admin.com")
 user1.image.attach(io: File.open("app/assets/images/user1.png"), filename: "user1.png")
 
-user2 = User.create(username: "UserUser", role: "user", password: "password", email: "user@user.com")
+user2 = User.create(username: "UserUser", role: 0, password: "password", email: "user@user.com")
 user2.image.attach(io: File.open("app/assets/images/user2.png"), filename: "user2.jpg")
 
 yacht1 = Yacht.create(name: "Yacht 1", description: "This is our first Yacht", price: 100)
