@@ -48,6 +48,8 @@ describe 'Yacht API' do
             consumes 'application/json'
             produces 'application/json'
 
+            let(:Authorization) { "Bearer #{token}" }
+
             parameter name: :yacht, in: :body, schema: {
                 type: :object,
                 properties: {
@@ -58,9 +60,28 @@ describe 'Yacht API' do
             }
 
             response :created, 'Yacht created' do
-                let(:Authorization) { "Bearer #{token}" }
                 schema type: :object,
                     items: {'$ref' => '#/definitions/Yacht'}
+                run_test!
+            end
+        end
+    end
+    path '/v1/yachts/{id}' do
+        delete 'Delete a yacht [Admin user only]' do
+            tags 'Yachts'
+            security [ bearerAuth: []]
+            consumes 'application/json'
+            produces 'application/json'
+
+            parameter name: :id, in: :path, type: :string
+
+            response '204', 'Yacht deleted' do
+                let(:Authorization) { "Bearer #{token}" }
+                run_test!
+            end
+
+            response '404', 'Yacht not found' do
+                schema '$ref' => '#/definitions/ErrorResponse'
                 run_test!
             end
         end

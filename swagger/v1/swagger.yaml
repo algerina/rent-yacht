@@ -124,6 +124,27 @@ paths:
             application/json:
               schema:
                 "$ref": "#/definitions/ErrorResponse"
+    delete:
+      summary: Delete a yacht [Admin user only]
+      tags:
+      - Yachts
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Yacht deleted
+        '404':
+          description: Yacht not found
+          content:
+            application/json:
+              schema:
+                "$ref": "#/definitions/ErrorResponse"
 definitions:
   Yacht:
     type: object
