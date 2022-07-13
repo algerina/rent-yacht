@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   get '/current_user', to: 'current_user#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   devise_for :users, path: '', path_names: {
