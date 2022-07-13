@@ -2,7 +2,17 @@ class V1::ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    render json: Reservation.all.to_json
+    reservations = if current_user.admin?
+                     Reservation.all
+                   else
+                     current_user.reservations
+                   end
+
+    if reservations == []
+      render json: { message: 'No reservations found' }, status: :not_found
+    else
+      render json: ReservationSerializer.new(reservations).serializable_hash[:data], status: :ok
+    end
   end
 
   def show
@@ -10,12 +20,12 @@ class V1::ReservationsController < ApplicationController
     if reservation.nil?
       render status: 404, json: { error: 'Reservation not found' }.to_json
     else
-      render json: reservation.to_json
+      render json: ReservationSerializer.new(reservation).serializable_hash[:data][:attributes], status: :ok
     end
   end
 
   def create
-    reservation = Reservation.new(reservation_params)
+    reservation = current_user.reservations.new(reservation_params)
     reservation.cost = reservation.yacht.price * reservation.days_number
     if reservation.save
       render json: reservation.to_json
@@ -30,13 +40,13 @@ class V1::ReservationsController < ApplicationController
       render status: 404, json: { error: 'Reservation not found' }.to_json
     else
       reservation.destroy
-      render json: { message: 'Reservation deleted' }.to_json
+      render json: { message: 'Reservation deleted' }.to_json, status: :ok
     end
   end
 
   private
 
   def reservation_params
-    params.require(:reservation).permit(:user_id, :yacht_id, :city, :start_date, :days_number)
+    params.require(:reservation).permit(:yacht_id, :city, :start_date, :days_number)
   end
 end

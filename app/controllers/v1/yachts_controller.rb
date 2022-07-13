@@ -6,7 +6,7 @@ class V1::YachtsController < ApplicationController
   def index
     @yachts = Yacht.all
 
-    render json: YachtSerializer.new(@yachts).serializable_hash[:data]
+    render json: YachtSerializer.new(@yachts).serializable_hash[:data], status: :ok
   end
 
   # GET /yachts/1
@@ -16,21 +16,29 @@ class V1::YachtsController < ApplicationController
 
   # POST /yachts
   def create
-    @yacht = Yacht.new(yacht_params)
+    if current_user.admin?
+      @yacht = Yacht.new(yacht_params)
 
-    if @yacht.save
-      render json: YachtSerializer.new(@yacht).serializable_hash[:data][:attributes], status: :created
+      if @yacht.save
+        render json: YachtSerializer.new(@yacht).serializable_hash[:data][:attributes], status: :created
+      else
+        render json: @yacht.errors, status: :unprocessable_entity
+      end
     else
-      render json: @yacht.errors, status: :unprocessable_entity
+      render json: { message: 'You are not authorized to perform this action' }, status: :unauthorized
     end
   end
 
   # DELETE /yachts/1
   def destroy
-    if @yacht.destroy
-      render json: { message: 'Yacht deleted' }, status: 200
+    if current_user.admin?
+      if @yacht.destroy
+        render json: { message: 'Yacht deleted' }, status: 200
+      else
+        render json: { message: 'Yacht could not be deleted' }, status: 500
+      end
     else
-      render json: { message: 'Yacht could not be deleted' }, status: 500
+      render json: { message: 'You are not authorized to perform this action' }, status: :unauthorized
     end
   end
 
@@ -39,9 +47,7 @@ class V1::YachtsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_yacht
     @yacht = Yacht.find_by_id(params[:id])
-    if @yacht.nil?
-      render json: { message: 'Yacht not found' }, status: 404
-    end
+    render json: { message: 'Yacht not found' }, status: 404 if @yacht.nil?
   end
 
   # Only allow a list of trusted parameters through.

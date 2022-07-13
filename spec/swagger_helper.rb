@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# rubocop:disable Metrics/BlockLength
 
 require 'rails_helper'
 
@@ -23,42 +23,42 @@ RSpec.configure do |config|
       },
       paths: {},
       definitions: {
-        Yacht: {
-          type: 'object',
-          properties: {
-            id: {type: :integer, example: 1},
-            name: {type: :string, example: "Yacht 1"},
-            description: {type: :string, example: "This is our first yacht"},
-            price: {type: :decimal, example: 100.0},
-            image_url: {type: :string, example: "http://localhost:3001/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--208a837d96cfc8b12c86088b4e4e0d0871fa6dce/yacht1.jpg"},
-          }
-        },
         Reservation: {
           type: 'object',
           properties: {
-            id: {type: :integer, example: 1},
-            start_date: {type: :datetime, example: "2020-01-01"},
-            days_number: {type: :integer, example: 5},
-            cost: {type: :decimal, example: 500.0},
-            yacht_id: {type: :integer, example: 1},
-            user_id: {type: :integer, example: 1},
+            id: { type: :integer, example: 1 },
+            start_date: { type: :datetime, example: '2020-01-01' },
+            days_number: { type: :integer, example: 5 },
+            cost: { type: :decimal, example: 500.0 },
+            yacht_id: { type: :integer, example: 1 },
+            user_id: { type: :integer, example: 1 }
           }
         },
-        User: { 
+        Yacht: {
           type: 'object',
           properties: {
-            username: {type: :string, example: "user1"},
-            email: {type: :string, example: "hola@hola.com"},
-            password: {type: :string, example: "123456"},
+            id: { type: :integer, example: 1 },
+            name: { type: :string, example: 'Yacht 1' },
+            description: { type: :string, example: 'This is our first yacht' },
+            price: { type: :decimal, example: 100.0 },
+            image_url: { type: :string, example: 'http://localhost:3001/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--208a837d96cfc8b12c86088b4e4e0d0871fa6dce/yacht1.jpg' }
+          }
+        },
+        User: {
+          type: 'object',
+          properties: {
+            username: { type: :string, example: 'user1' },
+            email: { type: :string, example: 'hola@hola.com' },
+            password: { type: :string, example: '123456' }
           }
         },
         ErrorResponse: {
           type: 'object',
           properties: {
             messages: {
-              type: :object, 
-              items: {type: :string, example: "Error message"}
-            },
+              type: :object,
+              items: { type: :string, example: 'Error message' }
+            }
           }
         }
       },
@@ -78,10 +78,12 @@ RSpec.configure do |config|
             type: :http,
             scheme: :bearer,
             bearerFormat: JWT
-          },
-        },
-      },
+          }
+        }
+      }
     }
   }
   config.swagger_format = :yaml
 end
+
+# rubocop:enable Metrics/BlockLength

@@ -1,86 +1,87 @@
 require 'swagger_helper'
 
-describe 'Yacht API' do
-  path '/v1/yachts' do
-    get 'Returns all yachts' do
-      tags 'Yachts'
+describe 'reservation API' do
+  path '/v1/reservations' do
+    get 'Returns all reservations' do
+      tags 'Reservations'
       security [bearerAuth: []]
       consumes 'application/json'
       produces 'application/json'
 
-      response '200', 'List of Yachts' do
+      response '200', 'List of Reservations' do
         let(:Authorization) { "Bearer #{token}" }
         schema type: :array,
-               yachts: {
+               reservations: {
                  type: :object,
-                 items: { '$ref' => '#/definitions/Yacht' }
+                 items: { '$ref' => '#/definitions/Reservation' }
                }
         run_test!
       end
     end
   end
-  path '/v1/yachts/{id}' do
-    get 'Returns a yacht' do
-      tags 'Yachts'
+  path '/v1/reservations/{id}' do
+    get 'Returns a reservation' do
+      tags 'Reservations'
       security [bearerAuth: []]
       consumes 'application/json'
       produces 'application/json'
 
       parameter name: :id, in: :path, type: :string
 
-      response '200', 'Yacht information' do
+      response '200', 'Reservation information' do
         let(:Authorization) { "Bearer #{token}" }
         schema type: :object,
-               items: { '$ref' => '#/definitions/Yacht' }
+               items: { '$ref' => '#/definitions/Reservation' }
         run_test!
       end
 
-      response '404', 'Yacht not found' do
+      response '404', 'Reservation not found' do
         schema '$ref' => '#/definitions/ErrorResponse'
         run_test!
       end
     end
   end
-  path '/v1/yachts' do
-    post 'Create a new Yacht [Admin user only]' do
-      tags 'Yachts'
+  path '/v1/reservations' do
+    post 'Create a new Reservation' do
+      tags 'Reservations'
       security [bearerAuth: []]
       consumes 'application/json'
       produces 'application/json'
 
       let(:Authorization) { "Bearer #{token}" }
 
-      parameter name: :yacht, in: :body, schema: {
+      parameter name: :reservation, in: :body, schema: {
         type: :object,
         properties: {
-          name: { type: :string, example: 'Example yacht' },
-          description: { type: :string, example: 'Example description' },
-          price: { type: :decimal, example: 100.0 }
+          city: { type: :string, example: 'Example city' },
+          start_date: { type: :datetime, example: '2022-10-29' },
+          days_number: { type: :integer, example: 3 },
+          yacht_id: { type: :string, example: '1' }
         }
       }
 
-      response :created, 'Yacht created' do
+      response :created, 'Reservation created' do
         schema type: :object,
-               items: { '$ref' => '#/definitions/Yacht' }
+               items: { '$ref' => '#/definitions/Reservation' }
         run_test!
       end
     end
   end
-  path '/v1/yachts/{id}' do
-    delete 'Delete a yacht [Admin user only]' do
-      tags 'Yachts'
+  path '/v1/reservations/{id}' do
+    delete 'Delete a reservation' do
+      tags 'Reservations'
       security [bearerAuth: []]
       consumes 'application/json'
       produces 'application/json'
 
       parameter name: :id, in: :path, type: :string
 
-      response '200', 'Yacht deleted' do
+      response '200', 'Reservation deleted' do
         let(:Authorization) { "Bearer #{token}" }
         run_test!
       end
 
-      response '404', 'Yacht not found' do
+      response '404', 'Reservation not found' do
         schema '$ref' => '#/definitions/ErrorResponse'
         run_test!
       end
