@@ -160,10 +160,10 @@ Platform | Badge |
 
 Platform | Badge |
  --- | --- |
- **GitHub**  |  [https://github.com/omar25ahmed](https://github.com/omar25ahmed)
- **Twitter** |[https://twitter.com/Omar25Ahmed](https://twitter.com/Omar25Ahmed
+ **GitHub**  |  [@omar25ahmed](https://github.com/omar25ahmed)
+ **Twitter** |[@omar25Ahmed](https://twitter.com/Omar25Ahmed
 )
- **LinkedIn** | [https://www.linkedin.com/in/omar-ragheb/](https://www.linkedin.com/in/omar-ragheb/
+ **LinkedIn** | [@Omar-ragheb](https://www.linkedin.com/in/omar-ragheb/
 )
 
 <hr>
