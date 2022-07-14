@@ -16,21 +16,21 @@ class V1::YachtsController < ApplicationController
 
   # POST /yachts
   def create
-      @yacht = Yacht.new(yacht_params)
-      if @yacht.save
-        render json: YachtSerializer.new(@yacht).serializable_hash[:data][:attributes], status: :created
-      else
-        render json: @yacht.errors, status: :unprocessable_entity
-      end
+    @yacht = Yacht.new(yacht_params)
+    if @yacht.save
+      render json: YachtSerializer.new(@yacht).serializable_hash[:data][:attributes], status: :created
+    else
+      render json: @yacht.errors, status: :unprocessable_entity
+    end
   end
 
   # DELETE /yachts/1
   def destroy
-      if @yacht.destroy
-        render json: { message: 'Yacht deleted' }, status: 200
-      else
-        render json: { message: 'Yacht could not be deleted' }, status: 500
-      end
+    if @yacht.destroy
+      render json: { message: 'Yacht deleted' }, status: 200
+    else
+      render json: { message: 'Yacht could not be deleted' }, status: 500
+    end
   end
 
   private
