@@ -1,6 +1,6 @@
 class V1::YachtsController < ApplicationController
   before_action :set_yacht, only: %i[show update destroy]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   # GET /yachts
   def index
@@ -16,30 +16,21 @@ class V1::YachtsController < ApplicationController
 
   # POST /yachts
   def create
-    if current_user.admin?
       @yacht = Yacht.new(yacht_params)
-
       if @yacht.save
         render json: YachtSerializer.new(@yacht).serializable_hash[:data][:attributes], status: :created
       else
         render json: @yacht.errors, status: :unprocessable_entity
       end
-    else
-      render json: { message: 'You are not authorized to perform this action' }, status: :unauthorized
-    end
   end
 
   # DELETE /yachts/1
   def destroy
-    if current_user.admin?
       if @yacht.destroy
         render json: { message: 'Yacht deleted' }, status: 200
       else
         render json: { message: 'Yacht could not be deleted' }, status: 500
       end
-    else
-      render json: { message: 'You are not authorized to perform this action' }, status: :unauthorized
-    end
   end
 
   private
