@@ -1,7 +1,11 @@
+require 'faker'
+
 FactoryBot.define do
   factory :yacht do
-    name { Faker::Name.name }
-    price { Faker::Number.between(from: 50.0, to: 100.0) }
-    description { Faker::Lorem.paragraph(sentence_count: 2) }
+    sequence(:name) { Faker::Name.name }
+    sequence(:price) { Faker::Number.between(from: 50.0, to: 100.0) }
+    sequence(:description) { Faker::Lorem.paragraph(sentence_count: 2) }
+    user = User.first
+    user_id { user.id }
   end
 end

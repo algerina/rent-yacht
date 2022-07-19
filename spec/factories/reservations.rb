@@ -1,3 +1,5 @@
+require 'faker'
+
 FactoryBot.define do
   factory :reservation do
     city { Faker::Address.city }
