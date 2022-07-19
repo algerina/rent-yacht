@@ -7,7 +7,8 @@ RSpec.describe Users::SessionsController, type: :request do
   describe 'POST /login' do
     it 'logs in a user' do
       post '/login',
-           params: { user: { username: @user.username, role: @user.role, email: @user.email, password: @user.password } }, as: :json
+           params: { user: { username: @user.username, role: @user.role, email: @user.email,
+                             password: @user.password } }, as: :json
       expect(response).to have_http_status(:ok)
     end
 
