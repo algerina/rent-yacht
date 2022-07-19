@@ -10,7 +10,8 @@ RSpec.describe Reservation, type: :model do
   end
 
   subject do
-    @reservation = Reservation.new(city: 'New York', start_date: '2023-01-01', days_number: 5, user: @user, yacht: @yacht)
+    @reservation = Reservation.new(city: 'New York', start_date: '2023-01-01', days_number: 5, user: @user,
+                                   yacht: @yacht)
   end
   before { subject.save }
 

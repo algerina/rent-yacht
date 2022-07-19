@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'V1::Reservations', type: :request do
   before(:all) do
     @user = FactoryBot.create(:user)
-    post '/login', params: { user: { username: @user.username, email: @user.email, password: @user.password } }, as: :json
+    post '/login', params: { user: { username: @user.username, email: @user.email, password: @user.password } },
+                   as: :json
     @authorization = response.header['Authorization']
     @yacht = FactoryBot.create(:yacht)
   end
