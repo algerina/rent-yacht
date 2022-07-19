@@ -67,3 +67,4 @@ end
 
 gem 'jsonapi-serializer', '~> 2.2'
 gem 'rswag'
+gem 'aws-sdk-s3'
