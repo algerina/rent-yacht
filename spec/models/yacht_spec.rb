@@ -7,7 +7,7 @@ RSpec.describe Yacht, type: :model do
   end
 
   subject do
-    Yacht.new(name: 'Sports Yacht', description: 'Good Yacht', price: 100)
+    Yacht.new(name: 'Sports Yacht', description: 'Good Yacht', price: 100 )
   end
   before { subject.save }
 
