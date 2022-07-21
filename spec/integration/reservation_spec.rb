@@ -1,6 +1,9 @@
 require 'swagger_helper'
 
 describe 'reservation API' do
+  before(:all) do
+    @user = User.create((username: 'larry', role: 'admin', email: 'a@a', password: 'abc123')
+  end
   path '/v1/reservations' do
     get 'Returns all reservations' do
       tags 'Reservations'
@@ -9,7 +12,7 @@ describe 'reservation API' do
       produces 'application/json'
 
       response '200', 'List of Reservations' do
-        let(:Authorization) { "Bearer #{token}" }
+        let(:Authorization) { "Bearer #{}" }
         schema type: :array,
                reservations: {
                  type: :object,
