@@ -19,9 +19,15 @@
 > This is  a Web application where users should sign in to rent a Yacht from a list then reserve for a determined period, users can then see their reservations or cancel them.
 <hr>
 
+## Kanban bord
+-  [Link to the initial state of the Kanban board](https://user-images.githubusercontent.com/92755394/177657371-659c399b-1846-44a2-811a-ba6d0e03858c.png)
+- [Link to the final state of the Kanban board ](https://github.com/algerina/rent-yacht/projects/1)
+- [Team members](https://github.com/algerina/rent-yacht#collaborators).
+
 
 ## Api Documentation
->You can review the documentation for the API [here]().
+
+>You can review the documentation for the API [here](https://wishyacht-api.herokuapp.com/api-docs/index.html).
 <hr>
 
  
