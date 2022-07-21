@@ -62,5 +62,10 @@ group :development do
   # gem "spring"
 end
 
+group :test do
+  gem 'factory_bot_rails'
+  gem 'faker'
+end
+
 gem 'jsonapi-serializer', '~> 2.2'
 gem 'rswag'
