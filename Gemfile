@@ -65,5 +65,6 @@ group :test do
   gem 'faker'
 end
 
+gem 'aws-sdk-s3'
 gem 'jsonapi-serializer', '~> 2.2'
 gem 'rswag'
