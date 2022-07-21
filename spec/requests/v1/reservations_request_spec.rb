@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'factory_bot'
 
 RSpec.describe 'V1::Reservations', type: :request do
   before(:all) do

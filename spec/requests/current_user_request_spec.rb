@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'factory_bot'
 
 RSpec.describe CurrentUserController, type: :request do
   before(:all) do
