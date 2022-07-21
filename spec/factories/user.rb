@@ -1,6 +1,9 @@
+require 'faker'
+
 FactoryBot.define do
   factory :user do
     username { Faker::Internet.username(specifier: 5..10) }
+    role { 'admin' }
     email { Faker::Internet.email }
     password { Faker::Internet.password(min_length: 6, max_length: 10) }
   end
